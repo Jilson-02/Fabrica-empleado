@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\FabricaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//RUTAS PARA LA FABRICA
+Route::get('/fabrica', [FabricaController::class, 'index']);
+Route::post('/fabrica', [FabricaController::class, 'store']);
+Route::delete('/fabrica/{id}', [FabricaController::class, 'eliminar']);
+
+//RUTAS PARA EL EMPLEADO
+Route::get('/empleado', [EmpleadoController::class, 'index']);
+Route::post('/empleado', [EmpleadoController::class, 'store']);
+Route::delete('/empleado/{id}',[EmpleadoController::class, 'eliminar'] );
+Route::get('/empleado/{id}', [EmpleadoController::class, 'showempleado']);
+Route::put('/empleado/{id}', [EmpleadoController::class, 'actualizar']);
